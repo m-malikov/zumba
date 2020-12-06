@@ -28,7 +28,7 @@ jobs:
         runs-on: windows-2019
         steps:
             - uses: actions/checkout@v1
-            - uses: olafurpg/setip-scala@v10
+            - uses: olafurpg/setup-scala@v10
             - name: build windows binary
               run: |
                 cd desktop-client
