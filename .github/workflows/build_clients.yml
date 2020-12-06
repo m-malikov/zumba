@@ -27,8 +27,7 @@ jobs:
             - name: build windows binary
               run: |
                 cd desktop-client
-                sbt wixFile
-                sbt widows:packageBin
+                sbt windows:packageBin
             - name: find windows artifact
               run: |
                 cd desktop-client/target
