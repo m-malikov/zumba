@@ -7,12 +7,7 @@ jobs:
     build-linux:
         runs-on: ubuntu-18.04
         steps:
-            - name: install sbt
-              run: |
-                echo "deb https://dl.bintray.com/sbt/debian /" | sudo tee -a /etc/apt/sources.list.d/sbt.list
-                curl -sL "https://keyserver.ubuntu.com/pks/lookup?op=get&search=0x2EE0EA64E40A89B84B2DF73499E82A75642AC823" | sudo apt-key add
-                sudo apt-get update
-                sudo apt-get install sbt
+            - uses: olafurpg/setup-scala@v10
             - uses: actions/checkout@v1
             - name: build project
               run: |
@@ -21,7 +16,7 @@ jobs:
             - name: upload linux artifact
               uses: actions/upload-artifact@v1
               with:
-                name: uploads
+                name: zumba-linux-binary
                 path: desktop-client/target/universal/zumba-0.1.zip
 
     build-windows:
@@ -33,3 +28,8 @@ jobs:
               run: |
                 cd desktop-client
                 sbt widows:packageBin
+            - name: upload windows artifact
+              uses: actions/upload-artifact@v1
+              with:
+                name: zumba-windows-installer
+                path: desktop-client/target/windows/zumba-0.1.msi
