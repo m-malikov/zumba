@@ -43,4 +43,4 @@ jobs:
               uses: actions/upload-artifact@v1
               with:
                 name: zumba-macos-dmg
-                path: desktop-client/target/universal/dmg/zumba-0.1.dmg
+                path: desktop-client/target/universal/zumba-0.1.dmg
