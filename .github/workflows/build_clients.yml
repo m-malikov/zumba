@@ -29,7 +29,7 @@ jobs:
               run: "cd desktop-client && sbt windows:packageBin"
             - name: find windows artifact
               run: |
-                cd desktop-client/target
+                cd desktop-client/target/windows
                 dir
             - name: upload windows artifact
               uses: actions/upload-artifact@v1
