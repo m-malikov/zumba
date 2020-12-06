@@ -27,12 +27,20 @@ jobs:
             - name: build windows binary
               shell: cmd
               run: "cd desktop-client && sbt windows:packageBin"
-            - name: find windows artifact
-              run: |
-                cd desktop-client/target/windows
-                dir
             - name: upload windows artifact
               uses: actions/upload-artifact@v1
               with:
                 name: zumba-windows-installer
                 path: desktop-client/target/windows/zumba.msi
+    build-macos:
+        runs-on: macos-10.14
+        steps:
+            - uses: actions/checkout@v1
+            - uses: olafurpg/setup-scala@v10
+            - name: build macos binary
+              run: "cd desktop-client && sbt universal:package-osx-dmg"
+            - name: upload macos artifact
+              uses: actions/upload-artifact@v1
+              with:
+                name: zumba-macos-dmg
+                path: desktop-client/target/macos/zumba.dmg
