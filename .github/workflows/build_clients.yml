@@ -35,4 +35,4 @@ jobs:
               uses: actions/upload-artifact@v1
               with:
                 name: zumba-windows-installer
-                path: desktop-client/target/windows/zumba-0.1.msi
+                path: desktop-client/target/windows/zumba.msi
