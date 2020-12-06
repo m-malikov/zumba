@@ -27,10 +27,11 @@ jobs:
             - name: build windows binary
               run: |
                 cd desktop-client
+                sbt wixFile
                 sbt widows:packageBin
             - name: find windows artifact
               run: |
-                cd desktop-client/project/target
+                cd desktop-client/target
                 dir
             - name: upload windows artifact
               uses: actions/upload-artifact@v1
