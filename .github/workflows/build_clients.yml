@@ -30,6 +30,6 @@ jobs:
                 sbt widows:packageBin
             - name: upload windows artifact
               uses: actions/upload-artifact@v1
-              run:
+              with:
                 name: zumba-windows-installer
                 path: desktop-client/target/windows/zumba-0.1.msi
