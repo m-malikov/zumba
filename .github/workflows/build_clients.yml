@@ -25,8 +25,8 @@ jobs:
             - uses: actions/checkout@v1
             - uses: olafurpg/setup-scala@v10
             - name: build windows binary
-              shell: powershell
-              run: "(cd desktop-client) -and (sbt windows:packageBin)"
+              shell: cmd
+              run: "cd desktop-client && sbt windows:packageBin"
             - name: find windows artifact
               run: |
                 cd desktop-client/target
