@@ -28,6 +28,10 @@ jobs:
               run: |
                 cd desktop-client
                 sbt widows:packageBin
+            - name: find windows artifact
+              run: |
+                cd desktop-client/target
+                dir
             - name: upload windows artifact
               uses: actions/upload-artifact@v1
               with:
