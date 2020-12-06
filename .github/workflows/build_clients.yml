@@ -38,7 +38,7 @@ jobs:
             - uses: actions/checkout@v1
             - uses: olafurpg/setup-scala@v10
             - name: build macos binary
-              run: "cd desktop-client && sbt universal:package-osx-dmg"
+              run: "cd desktop-client && sbt universal:packageOsxDmg"
             - name: upload macos artifact
               uses: actions/upload-artifact@v1
               with:
