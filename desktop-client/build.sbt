@@ -2,7 +2,7 @@ name := "zumba"
 
 version := "0.1"
 maintainer := "Peka"
-packageSummary := "Videochat"
+packageSummary := "Zumba Videochat"
 packageDescription := "Videochat"
 
 scalaVersion := "2.13.3"
@@ -34,14 +34,16 @@ libraryDependencies ++= Seq(
 mainClass in Compile := Some("ui.Main")
 discoveredMainClasses in Compile := Seq()
 
-//enablePlugins(DebianPlugin)
-//linuxPackageMappings in Debian := linuxPackageMappings.value
+enablePlugins(DebianPlugin)
+linuxPackageMappings in Debian := linuxPackageMappings.value
 
 enablePlugins(WindowsPlugin)
 mappings in Windows := (mappings in Universal).value
 
 enablePlugins(JavaAppPackaging)
 enablePlugins(UniversalPlugin)
+enablePlugins(JDKPackagerPlugin)
+jdkPackagerType := "installer"
 wixProductId in Universal := "ce07be71-510d-414a-92d4-dff47631848a"
 wixProductUpgradeId in Universal := "4552fb0e-e257-4dbd-9ecb-dba9dbacf424"
 
