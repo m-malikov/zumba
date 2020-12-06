@@ -25,6 +25,7 @@ jobs:
             - uses: actions/checkout@v1
             - uses: olafurpg/setup-scala@v10
             - name: build windows binary
+              shell: powershell
               run: |
                 cd desktop-client
                 sbt windows:packageBin
